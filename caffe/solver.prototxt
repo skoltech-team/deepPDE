@@ -1,0 +1,21 @@
+# The train/test net protocol buffer definition
+train_net: "models/train.prototxt"
+test_net: "models/test.prototxt"
+test_iter: 40
+# Carry out testing every 5000 training iterations.
+test_interval: 5000
+# The base learning rate, momentum and the weight decay of the network.
+base_lr: 0.05
+momentum: 0.9
+weight_decay: 0.005
+# The learning rate policy
+lr_policy: "inv"
+gamma: 0.00001
+power: 0.75
+# Display every 500 iterations
+display: 500
+# The maximum number of iterations
+max_iter: 1000
+# snapshot intermediate results
+snapshot: 10000
+snapshot_prefix: "snapshot"

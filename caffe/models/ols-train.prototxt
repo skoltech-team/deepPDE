@@ -1,0 +1,29 @@
+layer {
+  name: "data"
+  type: "HDF5Data"
+  top: "data"
+  top: "label"
+  hdf5_data_param {
+    source: "data/train_db"
+    batch_size: 64
+  }
+}
+layer {
+  name: "ip"
+  type: "InnerProduct"
+  bottom: "data"
+  top: "ip"
+  inner_product_param {
+    num_output: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "loss"
+  type: "EuclideanLoss"
+  bottom: "ip3"
+  bottom: "label"
+  top: "loss"
+}
